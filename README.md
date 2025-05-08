@@ -1,5 +1,5 @@
 # loyola_archehr_2025
-Unsupervised Attribution of LLM Generated Text
+Unsupervised attribution of LLM generated text using novel methods including average attention scores and evidence-questioj clustering.
 
 Competition and Task Details: https://archehr-qa.github.io
 
