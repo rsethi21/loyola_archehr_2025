@@ -357,27 +357,21 @@ Here is how your answers should be formated:
 
         # cluster-only
         cluster_out = mutli_step(cluster_prompt, question, context_text, model, tokenizer, pipe, hps, examples=None)
-        print(cluster_out)
         outputs["Cluster"] = {"case_id": entry["case_id"], "answer": f"{cluster_out}"}
-        print("----------------------------------")
 
         # attention-only
         output_matrix, context_numbers = predict(query, model, tokenizer, hps, system_prompt=system_prompt, context=context_text, examples=[example_selecting], rag=False, pipe=None)
         input_text, input_tokens, _ = format_query(query, tokenizer, context=context_text, system_prompt=system_prompt, examples=[example_selecting], rag=False, p=None)
         context, output = extract_context_and_output_indices(input_tokens["input_ids"][0], output_matrix["sequences"][0], tokenizer, output_start=assistant_header)
         attention_predictions, attention_output = attention_loop(input_tokens["input_ids"][0], output_matrix["sequences"][0], output_matrix.attentions, output, context, tokenizer, drop_attentions=True, threshold=0, context_numbers=context_numbers)
-        print(f"--Output--:\n{attention_output}")
         outputs["Attention"] = {"case_id": entry["case_id"], "answer": attention_output}
-        print("------------------------------------------------------")
 
         # cluster + attention
         output_matrix, context_numbers = predict(query, model, tokenizer, hps, system_prompt=system_prompt, context=context_text, examples=[example_selecting], rag=True, pipe=pipe)
         input_text, input_tokens, _ = format_query(query, tokenizer, context=context_text, system_prompt=system_prompt, examples=[example_selecting], rag=True, p=pipe)
         context, output = extract_context_and_output_indices(input_tokens["input_ids"][0], output_matrix["sequences"][0], tokenizer, output_start=assistant_header)
         attention_predictions, attention_output = attention_loop(input_tokens["input_ids"][0], output_matrix["sequences"][0], output_matrix.attentions, output, context, tokenizer, drop_attentions=True, threshold=0, context_numbers=context_numbers)
-        print(f"--Output--:\n{attention_output}")
         outputs["Multi"] = {"case_id": entry["case_id"], "answer": attention_output}
-        print("------------------------------------------------------")
         all_outputs.append(outputs)
     
     # return
