@@ -27,11 +27,14 @@ You can edit the hyperparameters throughout the code if desired. The only thing 
 python scripts/run_experiments.py
 ```
 Some hyperparameters that can be edited include:
-- system prompt
-- threshold in attention loop
-- drop attentions boolean (to select for attention layers)
-- providing an example in prompt (replace list with None, otherwise put examples in a list)
-- cluster prior to generation (encoded as rag boolean) and pipeline parameters
-- models loaded (may need to change the assistant header if doing this)
-- generation hyperparamters encoded as the hps variable
-- clustering algorithm and its hyperpameters can be adjusted in the cluster loop function
+- all methods:
+  - system prompt
+  - providing an example in prompt (replace list with None, otherwise put examples in a list)
+  - models loaded (may need to change the assistant header if doing this)
+  - generation hyperparamters encoded as the hps variable
+- attention:
+  - threshold in attention loop
+  - drop attentions boolean (to select for attention layers)
+- cluster:
+  - cluster prior to generation (encoded as rag boolean) and pipeline parameters
+  - clustering algorithm and its hyperpameters can be adjusted in the cluster loop function
