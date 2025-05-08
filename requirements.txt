@@ -1,0 +1,8 @@
+transformers
+bert_score
+accelerate
+torch
+scikit-learn
+tqdm
+numpy
+xmltodict
