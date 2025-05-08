@@ -1,5 +1,7 @@
 # loyola_archehr_2025
 Unsupervised Attribution of LLM Generated Text
+Competition and Task Details: https://archehr-qa.github.io
+Paper: [DOI will go here]
 # How to Run
 1. Virtual Environment
 If there are any missing packages during runtime, please install using pip.
