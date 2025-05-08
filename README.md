@@ -38,3 +38,6 @@ Some hyperparameters that can be edited include:
 - cluster:
   - cluster prior to generation (encoded as rag boolean) and pipeline parameters
   - clustering algorithm and its hyperpameters can be adjusted in the cluster loop function
+    - algorithm (KMeans, Agglomerative, DBSCAN, etc)
+    - number of clusters (2, 3, etc)
+    - distance algorithm (manhattan, euclidean, etc)
