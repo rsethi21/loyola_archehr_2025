@@ -8,10 +8,10 @@ Paper: [DOI will go here]
 1. Virtual Environment
 If there are any missing packages during runtime, please install using pip.
 ```
-python -m venv [name of environment]
+python -m venv [path to environment]
 ```
 ```
-source [name of environment]/bin/activate
+source [path to environment]/bin/activate
 ```
 ```
 pip install -r requirements.txt
